@@ -108,9 +108,10 @@ public class MyArray<T> {
             Object insertVal = arr[i];
             int insertPos = i;
             while (insertPos > 0 && compare(insertPos - 1, insertVal) >= 0) {
-                arr[insertPos] = arr[insertPos - 1];
+//                arr[insertPos] = arr[insertPos - 1];
                 insertPos--;
             }
+            System.arraycopy(arr, insertPos, arr, insertPos + 1, i - insertPos);
             arr[insertPos] = insertVal;
         }
     }
