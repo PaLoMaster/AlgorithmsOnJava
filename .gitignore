@@ -25,4 +25,6 @@ hs_err_pid*
 #Other
 /*/build/
 /*/test
-/*/nbproject/private/
+/*/nbproject/
+build.xml
+manifest.mf
