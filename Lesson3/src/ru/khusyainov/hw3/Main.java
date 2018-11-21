@@ -14,13 +14,6 @@ public class Main {
         testDeque();
     }
 
-    public static void testStackAndBrackets() {
-        List<String> br = Arrays.asList(
-                "()", "([])()", "{}()", "([{}])", //  правильные
-                ")(", "())({)", "(", "])})", "([(])"); //  не правильные
-        br.forEach(str -> System.out.println(new Brackets(str).check() + "\n"));
-    }
-
     public static void testStack() {
         int size = 5;
         Stack<Float> stack = new Stack<>(size);
@@ -45,6 +38,13 @@ public class Main {
             }
         }
         System.out.println();
+    }
+
+    public static void testStackAndBrackets() {
+        List<String> br = Arrays.asList(
+                "()", "([])()", "{}()", "([{}])", //  правильные
+                ")(", "())({)", "(", "])})", "([(])"); //  не правильные
+        br.forEach(str -> System.out.println(new Brackets(str).check() + "\n"));
     }
 
     private static void testQueue() {
