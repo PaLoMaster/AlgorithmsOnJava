@@ -8,7 +8,8 @@ public class Main {
     public static void main(String[] args) {
 //        testStack();
 //        testStackAndBrackets();
-        testQueue();
+//        testQueue();
+        testPriorityQueue();
     }
 
     public static void testStackAndBrackets() {
@@ -65,6 +66,33 @@ public class Main {
                     + " (осталось " + q.size() + ")");
             if (i < size * 2) {
                 q.insert(Integer.toString(i));
+                System.out.println("Введено в очередь: " + i++);
+            }
+        }
+        System.out.println();
+    }
+
+    private static void testPriorityQueue() {
+        int size = 5;
+        Queue<Integer> pq = new PriorityQueue<>(size);
+        int i = size;
+        System.out.println("\tПриоритетная очередь. Insert + Peek.");
+        for (;;) {
+            if (!pq.isFull()) {
+                pq.insert(i);
+                System.out.println("Введено в очередь: " + i--);
+            } else {
+                System.out.println("Не введено в очередь: " + i + " (очередь заполнена)");
+                System.out.println("Первый элемент очереди: " + pq.peek());
+                break;
+            }
+        }
+        System.out.println("\tПриоритетная очередь. Remove.");
+        while (!pq.isEmpty()) {
+            System.out.println("Выведено из очереди: " + pq.remove()
+                    + " (осталось " + pq.size() + ")");
+            if (i < size) {
+                pq.insert(i);
                 System.out.println("Введено в очередь: " + i++);
             }
         }
