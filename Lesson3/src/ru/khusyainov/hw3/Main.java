@@ -11,6 +11,7 @@ public class Main {
         testQueue();
         testPriorityQueue();
         testDequeAndStringReverse();
+        testDeque();
     }
 
     public static void testStackAndBrackets() {
@@ -125,6 +126,44 @@ public class Main {
         }
         while (!deqS.isEmpty()) {
             sb[1].append(deqS.removeRight());
+        }
+        System.out.println(sb[0] + "\n" + sb[1] + "\n");
+    }
+
+    private static void testDeque() {
+        int size = 5;
+        StringBuilder[] sb = new StringBuilder[2];
+        sb[0] = new StringBuilder("\tОчередь.\n");
+        sb[1] = new StringBuilder("\tДек в качестве очереди.\n");
+        Queue<String> q = new QueueImpl<>(size);
+        Deque<String> deqQ = new Deque<>(size);
+        int i = 1;
+        for (;;) {
+                if (!q.isFull()) {
+                    q.insert(Integer.toString(i));
+                }
+                if (!deqQ.isFull()) {
+                    deqQ.insertRight(Integer.toString(i++));
+                }
+            if (q.isFull() && deqQ.isFull()) {
+                break;
+            }
+        }
+        while (!q.isEmpty() && !deqQ.isEmpty()) {
+            if (!q.isEmpty()) {
+                sb[0].append(q.remove() + " ");
+            }
+            if (!deqQ.isEmpty()) {
+                sb[1].append(deqQ.removeLeft() + " ");
+            }
+            if (i < size * 2) {
+                if (!q.isFull()) {
+                    q.insert(Integer.toString(i));
+                }
+                if (!deqQ.isFull()) {
+                    deqQ.insertRight(Integer.toString(i++));
+                }
+            }
         }
         System.out.println(sb[0] + "\n" + sb[1] + "\n");
     }
