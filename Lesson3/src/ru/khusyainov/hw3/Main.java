@@ -51,13 +51,13 @@ public class Main {
         int size = 5;
         Queue<String> q = new QueueImpl<>(size);
         int i = 1;
-        System.out.println("\tОчередь. Insert + Peek.");
+        System.out.print("\tОчередь. Insert + Peek.\nВведено в очередь: ");
         for (;;) {
             if (!q.isFull()) {
                 q.insert(Integer.toString(i));
-                System.out.println("Введено в очередь: " + i++);
+                System.out.print(i++ + " ");
             } else {
-                System.out.println("Не введено в очередь: " + i + " (очередь заполнена)");
+                System.out.println("\nНе введено в очередь: " + i + " (очередь заполнена)");
                 System.out.println("Первый элемент очереди: " + q.peek());
                 break;
             }
