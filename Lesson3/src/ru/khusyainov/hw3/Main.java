@@ -21,7 +21,7 @@ public class Main {
         int size = 5;
         Stack<Float> stack = new Stack<>(size);
         float i = 1f;
-        System.out.println("Стек. Push + Peek.");
+        System.out.println("\tСтек. Push + Peek.");
         for (;;) {
             if (!stack.isFull()) {
                 stack.push(i++);
@@ -31,10 +31,14 @@ public class Main {
                 break;
             }
         }
-        System.out.println("Стек. Pop.");
+        System.out.println("\tСтек. Pop.");
         while (!stack.isEmpty()) {
-            System.out.println("Выведено из стека: " + stack.pop() + 
-                    " (осталось " + stack.size() + ")");
+            System.out.println("Выведено из стека: " + stack.pop()
+                    + " (осталось " + stack.size() + ")");
+            if (i < size * 2) {
+                stack.push(i++);
+                System.out.println("Введено в стек: " + stack.peek());
+            }
         }
         System.out.println();
     }
