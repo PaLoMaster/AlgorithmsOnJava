@@ -18,13 +18,13 @@ public class Main {
         int size = 5;
         Stack<Float> stack = new Stack<>(size);
         float i = 1f;
-        System.out.println("\tСтек. Push + Peek.");
+        System.out.print("\tСтек. Push + Peek.\nВведено в стек: ");
         for (;;) {
             if (!stack.isFull()) {
                 stack.push(i++);
-                System.out.println("Введено в стек: " + stack.peek());
+                System.out.print(stack.peek() + " ");
             } else {
-                System.out.println("Не введено в стек: " + i + " (стек полон)");
+                System.out.println("\nНе введено в стек: " + i + " (стек полон)");
                 break;
             }
         }
