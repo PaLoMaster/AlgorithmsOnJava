@@ -78,13 +78,13 @@ public class Main {
         int size = 5;
         Queue<Integer> pq = new PriorityQueue<>(size);
         int i = size;
-        System.out.println("\tПриоритетная очередь. Insert + Peek.");
+        System.out.print("\tПриоритетная очередь. Insert + Peek.\nВведено в очередь: ");
         for (;;) {
             if (!pq.isFull()) {
                 pq.insert(i);
-                System.out.println("Введено в очередь: " + i--);
+                System.out.print(i-- + " ");
             } else {
-                System.out.println("Не введено в очередь: " + i + " (очередь заполнена)");
+                System.out.println("\nНе введено в очередь: " + i + " (очередь заполнена)");
                 System.out.println("Первый элемент очереди: " + pq.peek());
                 break;
             }
@@ -139,12 +139,12 @@ public class Main {
         Deque<String> deqQ = new Deque<>(size);
         int i = 1;
         for (;;) {
-                if (!q.isFull()) {
-                    q.insert(Integer.toString(i));
-                }
-                if (!deqQ.isFull()) {
-                    deqQ.insertRight(Integer.toString(i++));
-                }
+            if (!q.isFull()) {
+                q.insert(Integer.toString(i));
+            }
+            if (!deqQ.isFull()) {
+                deqQ.insertRight(Integer.toString(i++));
+            }
             if (q.isFull() && deqQ.isFull()) {
                 break;
             }
