@@ -6,10 +6,11 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-//        testStack();
-//        testStackAndBrackets();
-//        testQueue();
+        testStack();
+        testStackAndBrackets();
+        testQueue();
         testPriorityQueue();
+        testDequeAndStringReverse();
     }
 
     public static void testStackAndBrackets() {
@@ -97,5 +98,34 @@ public class Main {
             }
         }
         System.out.println();
+    }
+
+    private static void testDequeAndStringReverse() {
+        String task = "2. Создать программу, которая переворачивает вводимые строки (читает справа налево).";
+        int size = task.length();
+        Stack<Character> stack = new Stack<>(size);
+        Deque<Character> deqS = new Deque<>(size);
+        int i = 0;
+        StringBuilder[] sb = new StringBuilder[2];
+        sb[0] = new StringBuilder("\tСтек.\n");
+        sb[1] = new StringBuilder("\tДек в качестве стека.\n");
+        for (;;) {
+            if (!stack.isFull()) {
+                stack.push(task.charAt(i));
+            }
+            if (!deqS.isFull()) {
+                deqS.insertRight(task.charAt(i++));
+            }
+            if (stack.isFull() && deqS.isFull()) {
+                break;
+            }
+        }
+        while (!stack.isEmpty()) {
+            sb[0].append(stack.pop());
+        }
+        while (!deqS.isEmpty()) {
+            sb[1].append(deqS.removeRight());
+        }
+        System.out.println(sb[0] + "\n" + sb[1] + "\n");
     }
 }
