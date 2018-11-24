@@ -12,6 +12,7 @@ public class Main {
         for (Character ch : str.toCharArray()) {
             lL.add(ch);
         }
+        System.out.println("Содержимое LinkedList:\n" + lL.toString());
         System.out.println("Удаление одного пробела (из двух): " + 
                 (lL.remove(' ') ? "успешно" : "неудачно"));
         System.out.println("Удаление отсутствующей 'ё': " + 

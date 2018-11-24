@@ -54,4 +54,15 @@ public class SimpleLinkedList<T> implements LinkedList<T> {
             return false;//чего-то не сооброжу, чтобы этот вариант был возможен
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        Node<T> print = elem;
+        for (int i = 0; i < size; i++) {
+            sb.append(print.value).append(", ");
+            print = print.previous;
+        }
+        return sb.append("]").toString().replace(", ]", "]");
+    }
 }
