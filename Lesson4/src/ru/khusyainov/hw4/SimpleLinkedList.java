@@ -26,10 +26,10 @@ public class SimpleLinkedList<T> implements LinkedList<T> {
 
     @Override
     public T remove() {
-        Node<T> removed = lastAdded;
+        T removed = lastAdded.value;
         lastAdded = lastAdded.previous;
         size--;
-        return removed.value;
+        return removed;
     }
 
     @Override
