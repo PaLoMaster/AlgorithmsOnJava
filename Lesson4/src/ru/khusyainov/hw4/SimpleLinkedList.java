@@ -48,9 +48,10 @@ public class SimpleLinkedList<T> implements LinkedList<T> {
         }
         if (prev != null) {
             prev.previous = del.previous;
+            size--;
             return true;
         } else {
-            return false;
+            return false;//чего-то не сооброжу, чтобы этот вариант был возможен
         }
     }
 }
