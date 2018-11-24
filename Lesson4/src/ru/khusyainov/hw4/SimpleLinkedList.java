@@ -59,7 +59,7 @@ public class SimpleLinkedList<T> implements LinkedList<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
         Node<T> print = elem;
-        for (int i = 0; i < size; i++) {
+        while (print != null) {
             sb.append(print.value).append(", ");
             print = print.previous;
         }
