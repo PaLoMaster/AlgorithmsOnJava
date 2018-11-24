@@ -11,6 +11,4 @@ public interface LinkedList<T> {
     T remove();
     
     boolean remove(T value);
-    
-    Iterator<T> iterator();
 }
