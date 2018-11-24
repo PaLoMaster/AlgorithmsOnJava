@@ -2,7 +2,7 @@ package ru.khusyainov.hw4;
 
 public class SimpleLinkedList<T> implements LinkedList<T> {
 
-    Node<T> elem;
+    Node<T> lastAdded;
     int size;
 
     @Override
@@ -19,27 +19,27 @@ public class SimpleLinkedList<T> implements LinkedList<T> {
     public void add(T value) {
         Node<T> newElem = new Node<>();
         newElem.value = value;
-        newElem.previous = elem;
-        elem = newElem;
+        newElem.previous = lastAdded;
+        lastAdded = newElem;
         size++;
     }
 
     @Override
     public T remove() {
-        Node<T> removed = elem;
-        elem = elem.previous;
+        Node<T> removed = lastAdded;
+        lastAdded = lastAdded.previous;
         size--;
         return removed.value;
     }
 
     @Override
     public boolean remove(T value) {
-        if (elem.value == value) {
-            return remove() == value;
+        if (lastAdded.value.equals(value)) {
+            return remove().equals(value);
         }
-        Node<T> del = elem;
+        Node<T> del = lastAdded;
         Node<T> prev = null;
-        while (del != null && del.value != value) {
+        while (del != null && !del.value.equals(value)) {
             prev = del;
             del = del.previous;
         }
@@ -58,7 +58,7 @@ public class SimpleLinkedList<T> implements LinkedList<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
-        Node<T> print = elem;
+        Node<T> print = lastAdded;
         while (print != null) {
             sb.append(print.value).append(", ");
             print = print.previous;
