@@ -39,20 +39,16 @@ public class SimpleLinkedList<T> implements LinkedList<T> {
         }
         Node<T> del = lastAdded;
         Node<T> prev = null;
-        while (del != null && !del.value.equals(value)) {
+        do {
             prev = del;
             del = del.previous;
-        }
+        } while (del != null && !del.value.equals(value));
         if (del == null) {
             return false;
         }
-        if (prev != null) {
-            prev.previous = del.previous;
-            size--;
-            return true;
-        } else {
-            return false;//чего-то не сооброжу, чтобы этот вариант был возможен
-        }
+        prev.previous = del.previous;
+        size--;
+        return true;
     }
 
     @Override
