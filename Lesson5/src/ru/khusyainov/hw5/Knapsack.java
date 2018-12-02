@@ -2,8 +2,6 @@ package ru.khusyainov.hw5;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.Objects;
 
 public class Knapsack {
