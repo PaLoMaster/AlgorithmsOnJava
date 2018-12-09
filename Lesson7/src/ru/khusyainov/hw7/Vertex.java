@@ -9,10 +9,14 @@ public class Vertex<T> {
     private final T label;
     private boolean isVisited;
     private final List<Vertex<T>> adjList;
+    private final int connectionsMaxSize;
+    private int connectionsCurSize;
 
     public Vertex(T label, int connectionsMaxSize) {
         this.label = label;
+        this.connectionsMaxSize = connectionsMaxSize;
         adjList = new ArrayList<>(connectionsMaxSize);
+        this.connectionsCurSize = 0;
     }
 
     public T getLabel() {
@@ -32,9 +36,14 @@ public class Vertex<T> {
     }
 
     public boolean setConnection(int index, Vertex<T> con) {
-        if (index < 0 || index > adjList.size()) {
-            throw new IndexOutOfBoundsException("Index is out of range"
-                    + " (0 - " + adjList.size() + ")");
+        if (index < 0 || index > adjList.size() || connectionsCurSize == connectionsMaxSize) {
+            if (connectionsCurSize != connectionsMaxSize) {
+                throw new IndexOutOfBoundsException("Index is out of range"
+                        + " (0 - " + adjList.size() + ")");
+            } else {
+                throw new IndexOutOfBoundsException("Connections limit exceeded"
+                        + " (" + connectionsMaxSize + ")");
+            }
         } else if (index < adjList.size()) {
             adjList.set(index, con);
             return true;
