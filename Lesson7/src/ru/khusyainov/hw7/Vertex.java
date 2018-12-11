@@ -32,11 +32,11 @@ public class Vertex<T> {
     }
 
     public boolean setConnection(Vertex<T> con) {
-        return adjList.add(con);
+        return setConnection(connectionsCurSize, con);
     }
 
     public boolean setConnection(int index, Vertex<T> con) {
-        if (index < 0 || index > adjList.size() || connectionsCurSize == connectionsMaxSize) {
+        if (index < 0 || index > connectionsCurSize || connectionsCurSize == connectionsMaxSize) {
             if (connectionsCurSize != connectionsMaxSize) {
                 throw new IndexOutOfBoundsException("Index is out of range"
                         + " (0 - " + adjList.size() + ")");
@@ -44,10 +44,12 @@ public class Vertex<T> {
                 throw new IndexOutOfBoundsException("Connections limit exceeded"
                         + " (" + connectionsMaxSize + ")");
             }
-        } else if (index < adjList.size()) {
+        } else if (index < connectionsCurSize) {
+            connectionsCurSize++;
             adjList.set(index, con);
             return true;
-        } else { //index == adjList.size()
+        } else { //index == connectionsCurSize
+            connectionsCurSize++;
             return adjList.add(con);
         }
     }
