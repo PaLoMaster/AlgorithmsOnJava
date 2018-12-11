@@ -29,13 +29,13 @@ public class Main {
         
         System.out.println(graph);
         
-        System.out.println("\nОбход графа в ширину:");
+        System.out.println("\nОбход графа в глубину:");
         graphsDfsWithDescription(graph, "Москва", "Воронеж");
         System.out.println("Встречался с подобным маршрутом в результатах поиска на сайте РЖД:");
         graphsDfsWithDescription(graph, "Москва", "Саратов");
         System.out.println(":)))\n");
         
-        System.out.println("Обход графа в глубину:");
+        System.out.println("Обход графа в ширину:");
         graphsBfsWithDescription(graph, "Москва", "Воронеж");
         graphsBfsWithDescription(graph, "Москва", "Саратов");
         graphsBfsWithDescription(graph, "Москва", "Курск");
